@@ -125,15 +125,15 @@ function play() {
                         allowOutsideClick: false,
                         showCancelButton: true,
                 });
-                // if(suka){
-                //     window.suka = "Aku terharu ><"
-                //     document.getElementById('typingsk').style.display = "inline-block";document.getElementById('typingsk').style.opacity = "1";
-                //     scroll()
-                // } else {
-                //     window.suka = "Aku engga suka :("
-                //     document.getElementById('typingg').style.display = "inline-block";document.getElementById('typingg').style.opacity = "1";
-                //     scroll()
-                // }
+                if(suka){
+                    window.suka = "Aku Suka ><"
+                    document.getElementById('typingsk').style.display = "inline-block";document.getElementById('typingsk').style.opacity = "1";
+                    scroll()
+                } else {
+                    window.suka = "Aku engga suka :("
+                    document.getElementById('typingg').style.display = "inline-block";document.getElementById('typingg').style.opacity = "1";
+                    scroll()
+                }
                 await swals.fire('Wahhh, Abis ini klik tombol bales pesan ya sayang buat lanjut lagii :)');
                 document.getElementById('blscht').style.display = "flex";
             }
