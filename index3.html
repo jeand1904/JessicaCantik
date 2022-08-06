@@ -76,7 +76,7 @@ const swals = Swal.mixin({cancelButtonColor: '#909090', confirmButtonColor: '#00
 async function pmau(){
 // await swals.fire('Yeay! Kirim ke no WhatsApp aku ya');
 Swal.fire({
-  title: 'Pesan Buat Botak',
+  title: 'Yeayyy, Pesan Buat Botak ya Sipitku sayang:)',
   input: 'text',
   name: 'pesanbotak',
   inputAttributes: {
@@ -88,9 +88,21 @@ Swal.fire({
   allowOutsideClick: () => !Swal.isLoading()
 }).then((result) => {
   if (result.value == "") {
-    swals.fire('Sipitku sayang di isi dulu ya pesan nya;)');
+    swals.fire(
+    'Sipitku sayang di isi dulu ya pesan nya;)'
+    ).then((data) => {
+      if (data.isConfirmed) {
+        pmau()
+      }
+    })
   } else if (result.value == undefined) {
-    swals.fire('Jangan Lupa kasih pesan nya ya sipitku sayang:)');
+    swals.fire(
+      'Jangan Lupa kasih pesan nya ya sipitku sayang:)'
+    ).then((data) => {
+      if (data.isConfirmed) {
+        pmau()
+      }
+    })
   } else{
     window.location = "https://api.whatsapp.com/send?phone=6285281554976&text=Hai,  Botakku sayang sipit udah liat semuanya," + "%0A%0A" + result.value;
   }
@@ -98,7 +110,15 @@ Swal.fire({
 }
 
 async function pgakmau(){
-await swals.fire('Yah Sipitku sayang:(');}
+await swals.fire(
+  'Yah Sipitku sayang:(',
+  'Kasih Botaknya Kesempatan ya sayang:(',
+).then((data) => {
+    if (data.isConfirmed) {
+      pmau()
+    }
+  })
+}
 </script>
 
 </body>
