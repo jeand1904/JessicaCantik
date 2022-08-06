@@ -120,9 +120,8 @@ function teks8(){document.getElementById('text9').style.display = "inline-block"
 function teks9(){document.getElementById('text10').style.display = "inline-block";document.getElementById('text10').style.opacity = "1"; scroll()}         
 
   function check() {document.getElementById('bodyblur').style.opacity = "0";document.getElementById('bodyblur').style.visibility = "hidden";document.getElementById("offchatMenu").checked = true;}
-  // function selesai() {document.getElementById('bodyblur').style.opacity = "1";document.getElementById('bodyblur').style.visibility = "visible";document.getElementById('konten').style.visibility = "hidden";document.getElementById('konten').style.opacity = "0";document.querySelector("body").style.animation = "anim 1s ease infinite";setTimeout(jscare,1000);}
+
   function selesai(){
-    let timerInterval
     Swal.fire({
       title: 'Udah Siap Sipitku sayang??',
       text: "Kalau sudah siap pencet siap ya sayangku",
@@ -133,12 +132,21 @@ function teks9(){document.getElementById('text10').style.display = "inline-block
       confirmButtonText: 'Siap!'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
+      Swal.fire(
           'Assekkk',
           'Wokehhh ayoo Sipitku sayang',
         )
-      }
       window.location = "index2.html";
+    } else {
+      Swal.fire(
+          'Ayo dong sipitku sayang:(',
+          'Botak Jamin Seru dehh sayangkuu:)',
+        ).then((data) => {
+          if (data.isConfirmed) {
+            selesai()
+          }
+        })
+      }
     })
   } 
   
