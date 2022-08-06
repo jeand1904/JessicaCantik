@@ -1,88 +1,143 @@
-<html><meta charset='UTF-8'/>
+<html>
+<meta charset='UTF-8'/>
 <meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
-<link href="https://plisbuka.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" />
-<script src="https://plisbuka.likeadream.repl.co/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<!-- <link href="https://foryou.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" /> -->
+<!-- <script src="https://foryou.likeadream.repl.co/script.js"></script> -->
 <head>
-<!-- 
-This code was made by Rayya R
-Blog: https://sinkronin.com
-Instagram: rayyarrr
-TikTok: rayyarr_
-Telegram: @rayyarr
--->
-</head>
 
+</head>
 <body>
 <style>
-body{background-image:url("https://i.postimg.cc/RZYd1FqJ/IMG-20211130-124813-940.jpg");background-repeat: no-repeat;animation:none;background-size: 105% 105%;}
-</style>
+body{background-image: url("https://i.postimg.cc/W1ZVKCFy/IMG-20211108-214640-213.jpg");background-repeat: no-repeat;background-size: 100% 100% 100%;}
 
-<div class="foto"><div class="image">
-<!-- Foto Atas --><img src="B612_20220127_132019_901.jpg" width="100px" height="100px"/></div><p id="textnama"></p></div>
 
-<div id='Content'>
-<div id='pergeseran'>
-<p><i>Sipitu sayang geser deh &#128073;</i></p>
-<p>Aku mau bilang nih</p>
-<p>Besok kan udah mau ganti bulan</p>
-<p>Gimana kalo kita jalan bareng?</p>
-<p>Aku pengen ngeliat kamu :v</p>
-<p>Kangen liat senyumanmu ><</p>
-<p>Jadi, gimana sipitku sayang? &#128073; <a id="tm" onClick='pmau();'>[ Iya ]</a><a id="tm" onClick='pgakmau();'>[ Gak! ]</a></p>
-</div>
-</div>
+body{background-repeat: no-repeat;background-size: 100vw 100vh;transition:all .3s ease;font-family: 'Quicksand', sans-serif;padding: 25px}body::before{content:"\00A9  Rayya R";color:white;opacity:.1;font-size:5px;position:absolute;bottom:25px;left:calc(50vw - 13px);} a{text-decoration:none;}
+@keyframes leaves {0% {transform: scale(1);} 100% {transform: scale(.90);}} .image .degdeg{animation: leaves 2s ease-in-out infinite alternate;-webkit-animation: leaves 1s ease-in-out infinite alternate;}
+.lovein{margin-left:7px;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .1s ease;}
+.button:hover, .lovein:hover{transform: scale(.90);}
+#foto{position:relative;opacity:0;margin-top:-200px;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;transition:all .5s ease;}#foto img{border-radius:50%;}
+#teksblur{position:relative;margin-top:200px;display:flex;align-items:center;justify-content:center;opacity:0;font-size:14px;color:white;width:100%;z-index:10;transition:all 1s ease;}
+#konten{z-index:3;position:relative;top:-50px;transition:all 1s ease;}
+#bodyblur{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1;transition:all 1s ease;opacity:1;visibility:visible;-webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px);}
 
-<div id="tombo" class="content2"><div id="lopdeg"><label class='tbulat' onClick="mulai();nonTo()">&#10084;&#65039;</label></div>
-<p style="opacity:.7;font-size:10px;color:white">Pencet Love-nya Sipitku sayang</p></div>
-
-<script>
-  //Audio Link MP3
-  function play() {
-    var audio = new Audio("Nothing's Gonna Change My Love For You - Westlife (Lyrics video dan terjemahan).mp3");
-    audio.play();
-    audio.loop=true;
-    audio.addEventListener('ended', function() {
-      this.currentTime = 0;this.play();
-    }, false);
-  }         
-  //Pembuka
-  var a=0,textnm;textnm = 
-  "Hai Sipit Cantik"
-
-const swals = Swal.mixin({cancelButtonColor: '#909090', confirmButtonColor: '#00B487', allowOutsideClick: false,});
-async function pmau(){
-// await swals.fire('Yeay! Kirim ke no WhatsApp aku ya');
-Swal.fire({
-  title: 'Pesan Buat Botak',
-  input: 'text',
-  name: 'pesanbotak',
-  inputAttributes: {
-    autocapitalize: 'off'
-  },
-  showCancelButton: true,
-  confirmButtonText: 'Kirim',
-  showLoaderOnConfirm: true,
-  preConfirm: () => {
-    
-  },
-  allowOutsideClick: () => !Swal.isLoading()
-}).then((result) => {
-  if (result.value == "") {
-    swals.fire('Sipitku sayang di isi dulu ya pesan nya');
-  } else {
-    window.location = "https://api.whatsapp.com/send?phone=6285281554976&text=Hai,  Botakku sayang sipit udah liat semuanya," + "%0A%0A" + result.value;
-  }
-})
+:root {
+--warna-background: #327D2E; 
+--warna-bg-chat: #f0f5fb;
+--warna-icon: #fff; 
+--warna-text: #0F0F0F;
+--warna-text-alt: #989b9f;
+--lebar-chatbox: 320px;
 }
 
-async function pgakmau(){
-await swals.fire('Yah Sipitku sayang:(');}
-</script>
+svg{width: 22px;height: 22px;vertical-align: middle;fill: var(--warna-icon)}
+.chatMenu, .tombolChat .svg-2{display: none}
 
+.tombolChat{position: fixed;background-color: var(--warna-background);bottom: 20px;left: 20px;border-radius: 50px;z-index: 20;overflow: hidden;display:none;align-items: center;justify-content: center;width: 50px;height: 50px;-webkit-transition: all .2s ease-out;transition: all .2s ease-out}
+.tombolChat svg{margin: auto;fill: var(--warna-icon)}
+  
+.chatBox{position: fixed;top: 70px;left: 20px;width: var(--lebar-chatbox);-webkit-transition: all .3s ease-out;transition: all .3s ease-out;z-index: 21;opacity: 0;visibility: hidden;line-height: normal}
+.chatContent{border-radius: 15px;background-color:rgba(0, 0, 0, .40);box-shadow: 0 5px 15px 0 rgba(0,0,0,.05);max-height:50vh;overflow: auto}
+.chatHead{position: relative;display: flex;align-items: center;padding: 15px 20px;background-color: var(--warna-background);overflow: hidden}
+.chatHead svg{width: 32px;height: 32px;flex-shrink: 0;fill: var(--warna-icon)}
+.chatHead img{border-radius:50%;width: 50px;height: 50px;flex-shrink: 0;}
+.chatHead .chatTitle{padding-left: 15px;font-size: 14px;color: var(--warna-icon)}
+.chatHead .chatTitle span{font-size: 11.5px;display: block;line-height: 1.58em}
+  
+.chatText{display: flex;flex-wrap: wrap;margin: 25px 20px;font-size: 13px;color: var(--warna-text)}
+.chatText span{display: none;opacity:0;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;margin-top:15px;margin-right: auto;padding: 10px 10px 10px 20px;background-color: var(--warna-bg-chat);border-radius: 3px 15px 15px}
+.chatText span:after{content: 'now';margin-left: 15px;font-size: 9px;color: var(--warna-text-alt)}
+.chatText .typing{font-size: 14px;margin: 15px 0 0 auto;padding: 10px 20px 10px 10px;border-radius: 15px 3px 15px 15px}
+.chatText .typing: after{display: none}
+  
+.balasChat{display:none;align-items: center;margin-top: 15px;padding: 18px 20px;border-radius: 10px;background-color:rgba(0, 0, 0, .40);overflow: hidden;font-size: 12px;color: white;-webkit-transition: all .1s ease-out;transition: all .1s ease-out;}.balasChat:hover{transform: scale(.90);}
+.chatMenu:checked + .tombolChat{-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+.chatMenu:checked + .tombolChat .svg-1{display: none}
+.chatMenu:checked + .tombolChat .svg-2{display: block}
+.chatMenu:checked ~ .chatBox{top: 10vh;opacity: 1;visibility: visible}
+</style>
+
+<div id="konten">
+
+<input class='chatMenu hidden' id='offchatMenu' type='checkbox' />
+<div class='chatBox'>
+  <div id='data' class='chatContent'>
+    
+    <div class='chatText'>
+      <span id='text1'>Ku akan slalu menjagamu hingga akhir waktu</span>
+      <span id='text2'>Selama nafas ini berhembus </span>
+      <span id='text3'>Tak akan ada cinta yang lain</span>
+      <span id='text4'>Hingga Tua Bersama</span>
+      <span id ='typingsk' class='typing'>Sukaa &#9829; &#9829; &#9829;</span>
+      <span id ='typingg' class='typing'>Engga suka :(</span>
+    </div>
+  </div>
+  
+  <a id="blscht" class='balasChat' onclick='buka()'>
+    <span>Balas pesan...</span>        
+  </a>
+</div>
+
+<div id="bodyblur">
+<div id="foto"><img src="B612_20220127_132019_901.jpg" width="100px" height="100px"/></div>
+<div id="teksblur"><span>Selama Jantung ini Berdetak</span></div>
+</div>
+
+<script type="text/javascript">
+function teks0(){document.getElementById('foto').style.opacity = "1"; document.getElementById('foto').style.margin = "70px 0 15px 0";document.getElementById('teksblur').style.opacity = "1"; document.getElementById('teksblur').style.margin = "0";}
+function teks1(){document.getElementById('foto').style.opacity = "0";document.getElementById('teksblur').style.opacity = "0";document.getElementById('text1').style.display = "inline-block";document.getElementById('text1').style.opacity = "1"; setTimeout(teks2,7000);}
+function teks2(){document.getElementById('text2').style.display = "inline-block";document.getElementById('text2').style.opacity = "1"; setTimeout(teks3,7000);scroll()}
+function teks3(){document.getElementById('text3').style.display = "inline-block";document.getElementById('text3').style.opacity = "1"; setTimeout(teks4,5000);scroll()}
+function teks4(){document.getElementById('text4').style.display = "inline-block";document.getElementById('text4').style.opacity = "1"; setTimeout(selesai,5000);scroll()}         
+
+  function check() {document.getElementById('bodyblur').style.opacity = "0";document.getElementById('bodyblur').style.visibility = "hidden";document.getElementById("offchatMenu").checked = true;}
+  function selesai() {document.getElementById('bodyblur').style.opacity = "1";document.getElementById('bodyblur').style.visibility = "visible";setTimeout(pertanyaan,3000);}
+  function scroll(){var objDiv = document.getElementById("data");objDiv.scrollTop = objDiv.scrollHeight;}
+//Opsi WhatsApp
+ function buka(){
+  window.location = "index3.html"
+} 
+            
+function play() {
+  //Link Audio Bisa Diganti
+  var audio = new Audio("Rizky Febian - Hingga Tua Bersama [Official Music Video].mp3");
+  audio.play();
+}
+            var today = new Date();var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+'.';var dateTime = date;
+            const swals = Swal.mixin({
+                allowOutsideClick: false,
+            });
+            async function mulai(){              
+                    await swals.fire('Selamat Datang Sipitku sayang :)');
+                    await swals.fire('Lihat ini sampai akhir ya sipitku sayang :)');                   
+                    setTimeout(teks0,1200);setTimeout(check,9000);setTimeout(teks1,9000);play()
+                }
+            async function pertanyaan(){
+                var { isConfirmed: suka } = await swals.fire({
+                        title: `Sipitku sayang suka ga nih? :(`,
+                        confirmButtonText: 'Suka',
+                        cancelButtonText: 'G',
+                        allowOutsideClick: false,
+                        showCancelButton: true,
+                });
+                // if(suka){
+                //     window.suka = "Aku terharu ><"
+                //     document.getElementById('typingsk').style.display = "inline-block";document.getElementById('typingsk').style.opacity = "1";
+                //     scroll()
+                // } else {
+                //     window.suka = "Aku engga suka :("
+                //     document.getElementById('typingg').style.display = "inline-block";document.getElementById('typingg').style.opacity = "1";
+                //     scroll()
+                // }
+                await swals.fire('Wahhh. Abis ini klik bales pesan ya sayang buat lanjut lagii :)');
+                document.getElementById('blscht').style.display = "flex";
+            }
+//Mulai
+mulai()
+</script>
 </body>
 </html>
